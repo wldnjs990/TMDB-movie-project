@@ -1,9 +1,9 @@
-// nowPlaying 데이터 타입
-interface T_nowPlayingDates {
+// 공용? 데이터 타입
+interface T_Dates {
   maximum: string;
   minimum: string;
 }
-interface T_nowPlayingMovieResult {
+interface T_MovieResult {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
@@ -19,10 +19,17 @@ interface T_nowPlayingMovieResult {
   vote_average: number;
   vote_count: number;
 }
+
+interface T_genre {
+  id: number;
+  name: string;
+}
+
+// nowPlaying 타입
 interface T_nowPlaying {
-  dates: T_nowPlayingDates;
+  dates: T_Dates;
   page: number;
-  results: T_nowPlayingMovieResult[];
+  results: T_MovieResult[];
   total_pages: number;
   total_results: number;
 }
