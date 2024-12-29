@@ -7,7 +7,7 @@ export default function Main() {
   const setGenreList = useGenreStore((state) => state.setGenreList);
 
   const getGenre = async () => {
-    const res = await axiosInstance.get(`genre/movie/list`);
+    const res = await axiosInstance.get(`genre/movie/list?language=ko`);
     setGenreList(res.data.genres);
   };
   useEffect(() => {
