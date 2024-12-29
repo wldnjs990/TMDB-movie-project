@@ -14,13 +14,11 @@ export default function Main() {
     getGenre();
   });
   return (
-    <main className="bg-black text-white flex flex-col gap-[20px]">
-      <section className="w-[80%] mx-auto py-[50px] px-[50px]">
-        <MovieInfoList infoParams={"now_playing"} infoTitle={"현재 상영중"} />
-        <MovieInfoList infoParams={"popular"} infoTitle={"인기작"} />
-        <MovieInfoList infoParams={"top_rated"} infoTitle={"TOP RATED"} />
-        <MovieInfoList infoParams={"upcoming"} infoTitle={"상영 예정"} />
-      </section>
-    </main>
+    <>
+      <MovieInfoList infoType={"now_playing"} infoTitle={"현재 상영중"} />
+      <MovieInfoList infoType={"popular"} infoTitle={"인기작"} />
+      <MovieInfoList infoType={"top_rated"} infoTitle={"TOP RATED"} />
+      <MovieInfoList infoType={"upcoming"} infoTitle={"상영 예정"} />
+    </>
   );
 }
