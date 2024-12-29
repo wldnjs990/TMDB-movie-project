@@ -14,7 +14,9 @@ export default function MoreInfoPage() {
   // 불러올 페이지 수
   const pageCount = moreInfoPageStore((state) => state.pageCount);
   const plusPageCount = moreInfoPageStore((state) => state.plusPageCount);
+  const resetPageCount = moreInfoPageStore((state) => state.resetPageCount);
 
+  // 영화 정보 리스트
   const movieInfoList = moreInfoPageStore((state) => state.movieInfoList);
   const setMovieInfoList = moreInfoPageStore((state) => state.setMovieInfoList);
   const addMovieInfoList = moreInfoPageStore((state) => state.addMovieInfoList);
@@ -48,6 +50,12 @@ export default function MoreInfoPage() {
     }
   };
 
+  // 추가 영화정보 받아오기(pageCount 기준)
+  const scrollToGetMovieInfo = async () => {
+    const res = await getMovieInfo(pageCount);
+    addMovieInfoList(res);
+  };
+
   // 스크롤 페이지 추가
   const addPageNum = async () => {
     const clientH = secRef.current?.clientHeight;
@@ -58,18 +66,13 @@ export default function MoreInfoPage() {
     }
   };
 
-  // 추가 영화정보 받아오기
-  const scrollToGetMovieInfo = async () => {
-    const res = await getMovieInfo(pageCount);
-    addMovieInfoList(res);
-  };
-
   useEffect(() => {
     getMovieInfoAll();
     window.addEventListener("scroll", addPageNum);
 
     return () => {
       window.removeEventListener("scroll", addPageNum);
+      resetPageCount();
     };
   }, []);
 
