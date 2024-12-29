@@ -8,7 +8,7 @@ export default function MovieInfoBox({
   const genreList = useGenreStore((state) => state.genreList);
 
   return (
-    <article className="max-h-[400px]">
+    <article className="w-full max-h-[400px]">
       <article className="w-full h-[70%]">
         <img
           src={`https://image.tmdb.org/t/p/w300${movieInfo.poster_path}`}

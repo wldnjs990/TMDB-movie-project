@@ -25,8 +25,8 @@ interface T_genre {
   name: string;
 }
 
-// nowPlaying 타입
-interface T_nowPlaying {
+// movie Data 타입
+interface T_movieData {
   dates: T_Dates;
   page: number;
   results: T_MovieResult[];
