@@ -6,6 +6,7 @@ interface T_moreInfoPageStore {
   addMovieInfoList: (getData: T_MovieResult[]) => void;
   pageCount: number;
   plusPageCount: () => void;
+  resetPageCount: () => void;
 }
 
 export const moreInfoPageStore = create<T_moreInfoPageStore>((set) => ({
@@ -16,5 +17,8 @@ export const moreInfoPageStore = create<T_moreInfoPageStore>((set) => ({
   pageCount: 5,
   plusPageCount: () => {
     set((state) => ({ pageCount: state.pageCount + 1 }));
+  },
+  resetPageCount: () => {
+    set(() => ({ pageCount: 5 }));
   },
 }));
