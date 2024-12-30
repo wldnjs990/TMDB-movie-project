@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import { axiosInstance } from "../api/axios";
 import { moreInfoPageStore } from "../store/moreInfoPageStore";
 import { useEffect, useRef, useState } from "react";
-import MovieInfoBox from "../components/MovieInfoBox";
+import MovieInfoBox from "../components/movieInfo/MovieInfoBox";
 import { v4 as uuidv4 } from "uuid";
 
 export default function MoreInfoPage() {
@@ -86,7 +86,7 @@ export default function MoreInfoPage() {
 
   return (
     <section ref={secRef}>
-      <h1>더 보기 페이지입니당</h1>
+      <h1 className="text-3xl font-bold mb-[20px]">더 보기 페이지입니당</h1>
       <article className="flex flex-wrap gap-[10px]">
         {movieInfoList.map((movieInfo) => {
           return (

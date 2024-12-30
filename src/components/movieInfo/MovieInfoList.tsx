@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { axiosInstance } from "../../api/axios";
-import MovieInfoBox from "../MovieInfoBox";
+import MovieInfoBox from "./MovieInfoBox";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { more_go_array } from "../../assets/images";
 import { Link } from "react-router";
+import { more_go_array_icon } from "../../assets/images";
 
 export default function MovieInfoList({
   infoType,
@@ -41,7 +41,7 @@ export default function MovieInfoList({
               to={`/MoreInfoPage/${infoType}`}
               className="w-[100px] h-[100px] rounded-full flex items-center justify-center bg-white"
             >
-              <img src={more_go_array} alt="더 보기 이미지" />
+              <img src={more_go_array_icon} alt="더 보기 이미지" />
             </Link>
             <p className="font-bold">더 보기</p>
           </article>
