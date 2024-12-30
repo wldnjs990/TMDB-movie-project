@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useGenreStore } from "../../store/genreStore";
 import { useMovieInfoModalStore } from "../../store/movieInfoBoxStore";
 
@@ -14,6 +15,15 @@ export default function MovieInfoBox({
   const setShowingMovieInfo = useMovieInfoModalStore(
     (state) => state.setShowingMovieInfo
   );
+  const setMovieInfoModalClose = useMovieInfoModalStore(
+    (state) => state.setMovieInfoModalClose
+  );
+
+  useEffect(() => {
+    return () => {
+      setMovieInfoModalClose();
+    };
+  });
 
   return (
     <article
