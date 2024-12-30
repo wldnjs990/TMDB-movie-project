@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { axiosInstance } from "../../api/axios";
-import MovieInfoBox from "../MovieInfoBox";
+import MovieInfoBox from "./MovieInfoBox";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { more_go_array } from "../../assets/images";
 import { Link } from "react-router";

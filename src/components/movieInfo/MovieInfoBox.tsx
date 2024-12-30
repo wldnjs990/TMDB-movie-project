@@ -1,4 +1,4 @@
-import { useGenreStore } from "../store/genreStore";
+import { useGenreStore } from "../../store/genreStore";
 
 export default function MovieInfoBox({
   movieInfo,
