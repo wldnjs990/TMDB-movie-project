@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 import { useMovieInfoModalStore } from "../store/movieInfoBoxStore";
-import MovieInfoModal from "../components/movieInfo/MovieInfoModal";
+import MovieInfoModal from "../components/movieInfo/movie_info_modal/MovieInfoModal";
 
 export default function LayOut() {
   const isMovieInfoModalOpen = useMovieInfoModalStore(
