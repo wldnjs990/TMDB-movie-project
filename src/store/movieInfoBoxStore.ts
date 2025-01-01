@@ -6,6 +6,8 @@ interface T_movieInfoModalStore {
   setMovieInfoModalClose: () => void;
   showingMovieInfo: T_MovieResult;
   setShowingMovieInfo: (getData: T_MovieResult) => void;
+  trailerKey: string;
+  setTrailerKey: (getData: string) => void;
 }
 
 export const useMovieInfoModalStore = create<T_movieInfoModalStore>((set) => ({
@@ -17,4 +19,6 @@ export const useMovieInfoModalStore = create<T_movieInfoModalStore>((set) => ({
     set(() => ({
       showingMovieInfo: movieInfo,
     })),
+  trailerKey: "",
+  setTrailerKey: (getData) => set(() => ({ trailerKey: getData })),
 }));

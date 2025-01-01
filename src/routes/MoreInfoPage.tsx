@@ -4,6 +4,7 @@ import { moreInfoPageStore } from "../store/moreInfoPageStore";
 import { useEffect, useRef, useState } from "react";
 import MovieInfoBox from "../components/movieInfo/MovieInfoBox";
 import { v4 as uuidv4 } from "uuid";
+import { useGenreStore } from "../store/genreStore";
 
 export default function MoreInfoPage() {
   const { infoType } = useParams();
@@ -20,6 +21,14 @@ export default function MoreInfoPage() {
   const movieInfoList = moreInfoPageStore((state) => state.movieInfoList);
   const setMovieInfoList = moreInfoPageStore((state) => state.setMovieInfoList);
   const addMovieInfoList = moreInfoPageStore((state) => state.addMovieInfoList);
+
+  // 장르 받아오기
+  const setGenreList = useGenreStore((state) => state.setGenreList);
+  const getGenre = async () => {
+    const res = await axiosInstance.get(`genre/movie/list?language=ko`);
+    console.log(res.data.genres);
+    setGenreList(res.data.genres);
+  };
 
   const secRef = useRef<HTMLDivElement>(null);
 
@@ -68,6 +77,7 @@ export default function MoreInfoPage() {
 
   useEffect(() => {
     getMovieInfoAll();
+    getGenre();
     window.addEventListener("scroll", addPageNum);
 
     return () => {
@@ -94,7 +104,7 @@ export default function MoreInfoPage() {
               key={uuidv4()}
               className="w-[calc(100%/5-10px+10px/5)] mb-[10px]"
             >
-              <MovieInfoBox movieInfo={movieInfo} />
+              <MovieInfoBox movieInfo={movieInfo} hover={true} genre={true} />
             </article>
           );
         })}
