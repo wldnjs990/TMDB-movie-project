@@ -21,16 +21,19 @@ export default function MovieInfoModalTop() {
       <h2 className="absolute bottom-[50px] left-[50px] text-[50px] font-extrabold">
         {showingMovieInfo.title}
       </h2>
-      <button
-        className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[100px] h-[100px]"
-        onClick={() => setIsTrailerOpen(true)}
-      >
-        <img
-          src={trailer_play_icon}
-          alt="트레일러 재생 버튼 아이콘"
-          className="w-full h-full object-cover opacity-80 bg-black bg-opacity-70 rounded-full hover:opacity-100 hover:bg-opacity-50"
-        />
-      </button>
+      {trailerKey !== "" && (
+        <button
+          className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[100px] h-[100px]"
+          onClick={() => setIsTrailerOpen(true)}
+        >
+          <img
+            src={trailer_play_icon}
+            alt="트레일러 재생 버튼 아이콘"
+            className="w-full h-full object-cover opacity-80 bg-black bg-opacity-70 rounded-full hover:opacity-100 hover:bg-opacity-50"
+          />
+        </button>
+      )}
+
       {isTrailerOpen && (
         <>
           <iframe
