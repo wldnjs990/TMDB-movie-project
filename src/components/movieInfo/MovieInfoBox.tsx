@@ -52,16 +52,16 @@ export default function MovieInfoBox({
         <article className={`p-[10px]`}>
           <p className="mb-[5px]">{movieInfo.title}</p>
           {genre && (
-            <p>
+            <article className="flex gap-[5px] flex-wrap">
               {movieInfo.genre_ids.map((id) => (
                 <span
                   key={id}
-                  className={`px-[5px] py-[3px] border border-white rounded-lg mr-[5px] text-[13px]`}
+                  className={`px-[5px] py-[3px] border border-white rounded-lg text-[13px]`}
                 >
                   {genreList.filter((genre) => id === genre.id)[0]?.name}
                 </span>
               ))}
-            </p>
+            </article>
           )}
         </article>
       </article>

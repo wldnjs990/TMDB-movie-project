@@ -25,9 +25,13 @@ export default function MovieInfoList({
     getMovie();
   }, []);
   return (
-    <section className="mb-[50px]">
+    <section>
       <h1 className="text-3xl font-bold mb-[20px]">{infoTitle}</h1>
-      <Swiper spaceBetween={10} slidesPerView={8} className="h-[400px]">
+      <Swiper
+        spaceBetween={10}
+        slidesPerView={8}
+        className="h-[300px] mb-[30px]"
+      >
         {movieResult.map((movieInfo) => {
           return (
             <SwiperSlide key={movieInfo.id}>
